@@ -161,7 +161,7 @@ const serverPORT = 25569;
 ambilStatServer(serverIP, serverPORT)
     .then(data => {
         if (data.online) {
-            TextStatus.textContent = `${data.players.online}/${data.players.max} Online <span class="onlinecolor">•</span>`; 
+            TextStatus.textContent = `${data.players.online}/${data.players.max} Online <span>•</span>`; 
         }
         else {
             TextStatus.textContent = 'Offline';
