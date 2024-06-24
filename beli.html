@@ -27,7 +27,7 @@
             <i data-feather="menu"></i>
         </div>
         <div class="navbar_gabung_server">
-            <a href="minecraft://?addExternalServer=Gerilya-Server|Resnopal.aternos.me:33975">Gabung Server!</a>
+            <a href="minecraft://?addExternalServer=Gerilya-Server|main.gerilya.fun:25569">Gabung Server!</a>
         </div>
     </div>
     <script>
@@ -87,27 +87,6 @@ prevBtn.addEventListener('click',
 });
 
 // untuk status online server
-
-const TextStatus = document.querySelector('.online');
-
-async function ambilStatServer(serverIP, serverPORT) {
-    const url = `https://api.mcsrvstat.us/bedrock/2/${serverIP}:${serverPORT}`;
-    const response = await fetch(url)
-    const data = await response.json();
-    return data;
-}
-
-const serverIP = 'Resnopal.aternos.me';
-const serverPORT = 33975;
-ambilStatServer(serverIP, serverPORT)
-    .then(data => {
-        if (data.online) {
-            TextStatus.textContent = `${data.players.online}/${data.players.max} Online`; 
-        }
-        else {
-            TextStatus.textContent = 'Offline';
-        }
-    })
     </script>
 </body>
 </html>
