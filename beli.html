@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <title>Gerilya Server || Beli</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div class="navbar">
+        <div class="navbar_close" id="navbar_close">
+            <i data-feather="x"></i>
+        </div>
+        <img src="./img/logo.png" alt="" class="logo">
+        <div class="navbar_list">
+            <a href="index.html#beranda">Beranda</a>
+            <a href="index.html#tentang">Tentang</a>
+            <a href="index.html#staff">Staff</a>
+            <a href="https://wa.me/6285743379513" target="_blank">Contact</a>
+        </div>
+        <div class="navbar_humberger" id="humberger">
+            <i data-feather="menu"></i>
+        </div>
+        <div class="navbar_gabung_server">
+            <a href="minecraft://?addExternalServer=Gerilya-Server|Resnopal.aternos.me:33975">Gabung Server!</a>
+        </div>
+    </div>
+    <script>
+feather.replace();
+const bukaMenu = document.querySelector('.navbar');
+
+document.querySelector('#humberger').
+onclick = () => {
+    bukaMenu.classList.toggle('aktif');
+}
+
+document.querySelector('#navbar_close').
+onclick = () => {
+    bukaMenu.classList.remove('aktif');
+}
+
+const navbarclose = document.querySelector('#navbar_close');
+
+document.addEventListener('click', function (e) {
+    if(!bukaMenu.contains(e.target)){
+        bukaMenu.classList.remove('aktif');
+    }
+})
+
+// bagian paragraft di section 2
+
+const textNya = document.querySelector('#text_paragraf')
+const nextBtn = document.querySelector('#next')
+const prevBtn = document.querySelector('#prev')
+
+const listTextnya = [
+    
+    "Adalah server minecraft yang menggunkanAdalah server minecraft yang menggunakan software bedrock edition dan menggunakan hosting server yang cepat. Dan kami menggunakan hosting server premium. Gerilya di bangun pada bulan juni 2023 dan sampai saat ini masih aktif, ayo gabung dan temukan teman!", 
+    "Fitur : \n Kami memberi mod rank untuk para player dan player bisa menggunakannya, kami memberi mod addon seperti senjata legendary, kami menyediakan minigame juga yang di antaranya kita bangung dengan comand block yang kompleks, ada parkour, race boat, pvp, dan block drop.", 
+    "Dan itulah semua tentang gerilya server, terima kasih -"
+
+];
+
+let keBerapa = 0;
+
+function lihat(index) {
+    textNya.textContent = listTextnya[index];
+}
+
+lihat(keBerapa);
+
+nextBtn.addEventListener('click', 
+    function() {
+    keBerapa = (keBerapa + 1) % listTextnya.length;
+    lihat(keBerapa);
+});
+
+prevBtn.addEventListener('click', 
+    function() {
+    keBerapa = (keBerapa - 1 + listTextnya.length) % listTextnya.length;
+    lihat(keBerapa);
+});
+
+// untuk status online server
+
+const TextStatus = document.querySelector('.online');
+
+async function ambilStatServer(serverIP, serverPORT) {
+    const url = `https://api.mcsrvstat.us/bedrock/2/${serverIP}:${serverPORT}`;
+    const response = await fetch(url)
+    const data = await response.json();
+    return data;
+}
+
+const serverIP = 'Resnopal.aternos.me';
+const serverPORT = 33975;
+ambilStatServer(serverIP, serverPORT)
+    .then(data => {
+        if (data.online) {
+            TextStatus.textContent = `${data.players.online}/${data.players.max} Online`; 
+        }
+        else {
+            TextStatus.textContent = 'Offline';
+        }
+    })
+    </script>
+</body>
+</html>
