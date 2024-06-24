@@ -203,6 +203,7 @@ body {
     color: transparent;
     background: linear-gradient(to right, var(--color), var(--color-gelap));
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 .hero .textnya p {
@@ -320,6 +321,7 @@ body {
     color: transparent;
     background: linear-gradient(to right, var(--color), var(--color-gelap));
     background-clip: text;
+    -webkit-background-clip: text;
 }
 
 /* bagian kartu staff */
@@ -358,6 +360,7 @@ body {
     color: transparent;
     background: linear-gradient(to right, #f02929, #a01b1b);
     background-clip: text;
+    -webkit-background-clip: text;
     margin-bottom: 1rem;
 }
 
@@ -378,6 +381,7 @@ body {
     color: transparent;
     background: linear-gradient(to right, #1d19ff, #c919ff);
     background-clip: text;
+    -webkit-background-clip: text;
     margin-bottom: 1rem;
 }
 
