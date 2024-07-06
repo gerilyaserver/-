@@ -35,8 +35,7 @@
         <div class="textnya">
             <h1>Gerilya <span>Minecraft </span> Server Bedrock</h1>
             <p>
-                Adalah server minecraft yang menggunakan software bedrock edition
-                dan menggunakan hosting server yang cepat.        <span class="ip">main.gerilya.fun:25569</span>
+                <span id="typed-text"></span><span id="cursor">|</span>        <span class="ip">main.gerilya.fun:25569</span>
             </p>
             <div class="onlinestatus">
                 <a href="#" class="online" id="online">
@@ -167,6 +166,24 @@ ambilStatServer(serverIP, serverPORT)
             TextStatus.textContent = 'Server Sedang Offline';
         }
     })
+
+    // untuk script text berjalaannya 
+    const text = "Adalah server minecraft yang menggunakan software bedrock edition dan menggunakan hosting server yang cepat.";
+let index = 0;
+
+function type() {
+    const typedText = document.getElementById('typed-text');
+    typedText.textContent += text[index];
+    index++;
+
+    if (index >= text.length) {
+        clearInterval(typingInterval);
+        document.getElementById('cursor').style.display = 'none'; // Hide cursor when typing is complete
+    }
+}
+
+const typingInterval = setInterval(type, 100); // Adjust typing speed here
+
     </script>
 </body>
 </html>
