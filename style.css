@@ -199,14 +199,16 @@ body {
     line-height: 4rem;
 }
 
-.hero .textnya span {
+.ip{
+    font-size: 20px;
     color: transparent;
     background: linear-gradient(to right, var(--color), var(--color-gelap));
     background-clip: text;
     -webkit-background-clip: text;
 }
 
-.hero .textnya p {
+#typed-text{
+    color: #35180e;
     font-size: 1.2rem;
     font-weight: 500;
     max-width: 40rem;
